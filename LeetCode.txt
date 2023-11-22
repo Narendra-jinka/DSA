@@ -1,0 +1,262 @@
+1)  Implement pow(x, n), which calculates x raised to the power n (i.e., xn).
+
+ 
+
+Example 1:
+
+Input: x = 2.00000, n = 10
+Output: 1024.00000
+Example 2:
+
+Input: x = 2.10000, n = 3
+Output: 9.26100
+Example 3:
+
+Input: x = 2.00000, n = -2
+Output: 0.25000
+Explanation: 2-2 = 1/22 = 1/4 = 0.25
+
+
+
+-------------------------------------------------------------------------------
+
+
+Given an array nums of distinct integers, return all the possible permutations. You can return the answer in any order.
+
+ 
+
+Example 1:
+
+Input: nums = [1,2,3]
+Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+Example 2:
+
+Input: nums = [0,1]
+Output: [[0,1],[1,0]]
+Example 3:
+
+Input: nums = [1]
+Output: [[1]]
+
+
+-------------------------------------------------------------------
+
+
+Given two integers n and k, return all possible combinations of k numbers chosen from the range [1, n].
+
+You may return the answer in any order.
+
+ 
+
+Example 1:
+
+Input: n = 4, k = 2
+Output: [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]
+Explanation: There are 4 choose 2 = 6 total combinations.
+Note that combinations are unordered, i.e., [1,2] and [2,1] are considered to be the same combination.
+Example 2:
+
+Input: n = 1, k = 1
+Output: [[1]]
+Explanation: There is 1 choose 1 = 1 total combination.
+
+-------------------------------------------------------------------------------------
+
+An array arr a mountain if the following properties hold:
+
+arr.length >= 3
+There exists some i with 0 < i < arr.length - 1 such that:
+arr[0] < arr[1] < ... < arr[i - 1] < arr[i] 
+arr[i] > arr[i + 1] > ... > arr[arr.length - 1]
+Given a mountain array arr, return the index i such that arr[0] < arr[1] < ... < arr[i - 1] < arr[i] > arr[i + 1] > ... > arr[arr.length - 1].
+
+You must solve it in O(log(arr.length)) time complexity.
+
+ 
+
+Example 1:
+
+Input: arr = [0,1,0]
+Output: 1
+Example 2:
+
+Input: arr = [0,2,1,0]
+Output: 1
+Example 3:
+
+Input: arr = [0,10,5,2]
+Output: 1
+
+-------------------------------------------------------------------------
+
+You are given a floating-point number hour, representing the amount of time you have to reach the office. To commute to the office, you must take n trains in sequential order. You are also given an integer array dist of length n, where dist[i] describes the distance (in kilometers) of the ith train ride.
+
+Each train can only depart at an integer hour, so you may need to wait in between each train ride.
+
+For example, if the 1st train ride takes 1.5 hours, you must wait for an additional 0.5 hours before you can depart on the 2nd train ride at the 2 hour mark.
+Return the minimum positive integer speed (in kilometers per hour) that all the trains must travel at for you to reach the office on time, or -1 if it is impossible to be on time.
+
+Tests are generated such that the answer will not exceed 107 and hour will have at most two digits after the decimal point.
+
+ 
+
+Example 1:
+
+Input: dist = [1,3,2], hour = 6
+Output: 1
+Explanation: At speed 1:
+- The first train ride takes 1/1 = 1 hour.
+- Since we are already at an integer hour, we depart immediately at the 1 hour mark. The second train takes 3/1 = 3 hours.
+- Since we are already at an integer hour, we depart immediately at the 4 hour mark. The third train takes 2/1 = 2 hours.
+- You will arrive at exactly the 6 hour mark.
+Example 2:
+
+Input: dist = [1,3,2], hour = 2.7
+Output: 3
+Explanation: At speed 3:
+- The first train ride takes 1/3 = 0.33333 hours.
+- Since we are not at an integer hour, we wait until the 1 hour mark to depart. The second train ride takes 3/3 = 1 hour.
+- Since we are already at an integer hour, we depart immediately at the 2 hour mark. The third train takes 2/3 = 0.66667 hours.
+- You will arrive at the 2.66667 hour mark.
+Example 3:
+
+Input: dist = [1,3,2], hour = 1.9
+Output: -1
+Explanation: It is impossible because the earliest the third train can depart is at the 2 hour mark.
+
+---------------------------------------------------------------------------------------
+
+You are given an integer array nums. Two players are playing a game with this array: player 1 and player 2.
+
+Player 1 and player 2 take turns, with player 1 starting first. Both players start the game with a score of 0. At each turn, the player takes one of the numbers from either end of the array (i.e., nums[0] or nums[nums.length - 1]) which reduces the size of the array by 1. The player adds the chosen number to their score. The game ends when there are no more elements in the array.
+
+Return true if Player 1 can win the game. If the scores of both players are equal, then player 1 is still the winner, and you should also return true. You may assume that both players are playing optimally.
+
+ 
+
+Example 1:
+
+Input: nums = [1,5,2]
+Output: false
+Explanation: Initially, player 1 can choose between 1 and 2. 
+If he chooses 2 (or 1), then player 2 can choose from 1 (or 2) and 5. If player 2 chooses 5, then player 1 will be left with 1 (or 2). 
+So, final score of player 1 is 1 + 2 = 3, and player 2 is 5. 
+Hence, player 1 will never be the winner and you need to return false.
+
+
+
+Input: nums = [1,5,233,7]
+Output: true
+Explanation: Player 1 first chooses 1. Then player 2 has to choose between 5 and 7. No matter which number player 2 choose, player 1 can choose 233.
+Finally, player 1 has more score (234) than player 2 (12), so you need to return True representing player1 can win.
+-----------------------------------------------------------------------------------
+
+
+There are two types of soup: type A and type B. Initially, we have n ml of each type of soup. There are four kinds of operations:
+
+Serve 100 ml of soup A and 0 ml of soup B,
+Serve 75 ml of soup A and 25 ml of soup B,
+Serve 50 ml of soup A and 50 ml of soup B, and
+Serve 25 ml of soup A and 75 ml of soup B.
+When we serve some soup, we give it to someone, and we no longer have it. Each turn, we will choose from the four operations with an equal probability 0.25. If the remaining volume of soup is not enough to complete the operation, we will serve as much as possible. We stop once we no longer have some quantity of both types of soup.
+
+Note that we do not have an operation where all 100 ml's of soup B are used first.
+
+Return the probability that soup A will be empty first, plus half the probability that A and B become empty at the same time. Answers within 10-5 of the actual answer will be accepted.
+
+ 
+
+Example 1:
+
+Input: n = 50
+Output: 0.62500
+Explanation: If we choose the first two operations, A will become empty first.
+For the third operation, A and B will become empty at the same time.
+For the fourth operation, B will become empty first.
+So the total probability of A becoming empty first plus half the probability that A and B become empty at the same time, is 0.25 * (1 + 1 + 0.5 + 0) = 0.625.
+Example 2:
+
+Input: n = 100
+Output: 0.71875
+
+--------------------------------------------------------------------------------------
+
+Given two strings s1 and s2, return the lowest ASCII sum of deleted characters to make two strings equal.
+
+ 
+
+Example 1:
+
+Input: s1 = "sea", s2 = "eat"
+Output: 231
+Explanation: Deleting "s" from "sea" adds the ASCII value of "s" (115) to the sum.
+Deleting "t" from "eat" adds 116 to the sum.
+At the end, both strings are equal, and 115 + 116 = 231 is the minimum sum possible to achieve this.
+Example 2:
+
+Input: s1 = "delete", s2 = "leet"
+Output: 403
+Explanation: Deleting "dee" from "delete" to turn the string into "let",
+adds 100[d] + 101[e] + 101[e] to the sum.
+Deleting "e" from "leet" adds 101[e] to the sum.
+At the end, both strings are equal to "let", and the answer is 100+101+101+101 = 403.
+If instead we turned both strings into "lee" or "eet", we would get answers of 433 or 417, which are higher.
+
+--------------------------------------------------------------------------------------
+Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words.
+
+Note that the same word in the dictionary may be reused multiple times in the segmentation.
+
+ 
+
+Example 1:
+
+Input: s = "leetcode", wordDict = ["leet","code"]
+Output: true
+Explanation: Return true because "leetcode" can be segmented as "leet code".
+Example 2:
+
+Input: s = "applepenapple", wordDict = ["apple","pen"]
+Output: true
+Explanation: Return true because "applepenapple" can be segmented as "apple pen apple".
+Note that you are allowed to reuse a dictionary word.
+
+-------------------------------------------------------------------------------------------
+Given an integer n, return all the structurally unique BST's (binary search trees), which has exactly n nodes of unique values from 1 to n. Return the answer in any order.
+
+Input: n = 3
+Output: [[1,null,2,null,3],[1,null,3,2],[2,1,3],[3,1,null,null,2],[3,2,null,1]]
+
+Input: n = 1
+Output: [[1]]
+
+-----------------------------------------------------------------------------
+
+
+Your music player contains n different songs. You want to listen to goal songs (not necessarily different) during your trip. To avoid boredom, you will create a playlist so that:
+
+Every song is played at least once.
+A song can only be played again only if k other songs have been played.
+Given n, goal, and k, return the number of possible playlists that you can create. Since the answer can be very large, return it modulo 109 + 7.
+
+ 
+
+Example 1:
+
+Input: n = 3, goal = 3, k = 1
+Output: 6
+Explanation: There are 6 possible playlists: [1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], and [3, 2, 1].
+
+
+Example 2:
+
+Input: n = 2, goal = 3, k = 0
+Output: 6
+Explanation: There are 6 possible playlists: [1, 1, 2], [1, 2, 1], [2, 1, 1], [2, 2, 1], [2, 1, 2], and [1, 2, 2].
+Example 3:
+
+Input: n = 2, goal = 3, k = 1
+Output: 2
+Explanation: There are 2 possible playlists: [1, 2, 1] and [2, 1, 2].
+
+---------------------------------------------------------------------------------------------------------
